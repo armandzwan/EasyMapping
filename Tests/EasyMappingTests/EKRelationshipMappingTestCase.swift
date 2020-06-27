@@ -33,7 +33,7 @@ class EKRelationshipMappingTestCase: XCTestCase {
         sut = EKRelationshipMapping(forClass: EKObjectModel.self, withKeyPath: "foo", forProperty: "bar")
     }
     
-    func testPerformanceExample() {
+    func testVariables() {
         XCTAssert(sut.objectClass == EKObjectModel.self)
         XCTAssertEqual(sut.keyPath, "foo")
         XCTAssertEqual(sut.property, "bar")
