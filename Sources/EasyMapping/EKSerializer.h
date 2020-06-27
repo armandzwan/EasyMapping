@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
  @result parsed JSON in a form of NSArray.
  */
 + (NSArray <NSDictionary <NSString *, id> *> *)serializeCollection:(NSArray *)collection
-                                                       withMapping:(EKObjectMapping *)mapping;
+                                                  withRelationship:(EKRelationshipMapping *)relationship;
 
 /**
  Convert CoreData managed object to JSON representation.
@@ -82,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
  @result parsed JSON in a form of NSArray.
  */
 + (NSArray <NSDictionary <NSString *, id> *> *)serializeCollection:(NSArray *)collection
-                                                       withMapping:(EKManagedObjectMapping*)mapping
+                                                       withRelationship:(EKRelationshipMapping*)relationship
                                                        fromContext:(NSManagedObjectContext *)context;
 @end
 
