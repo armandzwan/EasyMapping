@@ -397,7 +397,18 @@ class EKSerializerRelationshipsTestCase: XCTestCase {
     }
     
     func testSerializationResolver() {
-        let sut = EKSerializer.serializeObject(Person.withAnimals, with: MappingProvider.personWithPetsMapping())
-        XCTAssertNil(sut)
+        let person = EKSerializer.serializeObject(Person.withAnimals, with: MappingProvider.personWithPetsMapping())
+        guard let animals = person["animals"] as? [[String:Any]] else { XCTFail(); return }
+        
+        let dogs = animals.compactMap { $0["family"] as? String }
+        let wolfs = animals.compactMap { $0["pack"] as? String }
+        XCTAssertEqual(dogs.count, 2)
+        XCTAssertEqual(wolfs.count, 2)
+        
+        XCTAssertEqual(dogs.first, "Teckel")
+        XCTAssertEqual(dogs.last, "Bulldog")
+        
+        XCTAssertEqual(wolfs.first, "Arctic")
+        XCTAssertEqual(wolfs.last, "Gray")
     }
 }
