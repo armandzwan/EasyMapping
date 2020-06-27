@@ -214,6 +214,13 @@
             return [Wolf objectMapping];
         }
     };
+    relationship.serializationResolver = ^EKObjectMapping * _Nonnull(id  _Nonnull object) {
+        if ([object isKindOfClass:Dog.class]) {
+            return Dog.objectMapping;
+        } else {
+            return Wolf.objectMapping;
+        }
+    };
     return mapping;
 }
 

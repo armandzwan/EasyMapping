@@ -395,4 +395,9 @@ class EKSerializerRelationshipsTestCase: XCTestCase {
         XCTAssert(numbers.contains(where: { $0 == "1111-1111"}))
         XCTAssert(numbers.contains(where: { $0 == "2222-222" }))
     }
+    
+    func testSerializationResolver() {
+        let sut = EKSerializer.serializeObject(Person.withAnimals, with: MappingProvider.personWithPetsMapping())
+        XCTAssertNil(sut)
+    }
 }
