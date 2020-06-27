@@ -87,6 +87,12 @@ extension Person {
         person.phones = [Phone.one, Phone.two]
         return person
     }
+    
+    static var withAnimals: Person {
+        let person = socialPerson
+        person.pets = [Dog.fido, Dog.fifi, Wolf.alaska, Wolf.blizzard]
+        return person
+    }
 }
 
 extension Address {
@@ -98,6 +104,32 @@ extension Address {
     }
 }
 
+extension Dog {
+    static var fido: Dog {
+        let dog = Dog()
+        dog.family = "Teckel"
+        return dog
+    }
+    
+    static var fifi: Dog {
+        let dog = Dog()
+        dog.family = "Bulldog"
+        return dog
+    }
+}
+
+extension Wolf {
+    static var alaska: Wolf {
+        let wolf = Wolf()
+        wolf.pack = "Arctic"
+        return wolf
+    }
+    static var blizzard: Wolf {
+        let wolf = Wolf()
+        wolf.pack = "Gray"
+        return wolf
+    }
+}
 class EKSerializerTestCase: XCTestCase {
     
     func testSerializerSerializesProperties() {
